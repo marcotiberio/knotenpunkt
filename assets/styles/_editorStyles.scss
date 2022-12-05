@@ -1,0 +1,50 @@
+@include font-face('klarheit', 'klarheit', '400', 'normal');
+
+.mce-content-body {
+  background-color: #dedede;
+}
+
+#tinymce {
+  h1,
+  .h1 {
+    font-family: 'klarheit', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1.5;
+  }
+
+  p,
+  .p
+  .paragraph {
+    font-family: 'klarheit', sans-serif;
+    font-size: 16px;
+    margin: 0;
+    margin-block-end: 0;
+    margin-block-start: 0;
+  }
+
+  a {
+    color: $black;
+    font-family: 'klarheit', sans-serif;
+    font-size: inherit;
+    text-decoration: underline;
+  }
+
+  .button {
+    appearance: none;
+    background-color: $orange;
+    border: 1px solid $orange;
+    color: $white;
+    cursor: pointer;
+    display: inline-block;
+    font-family: 'klarheit', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: inherit;
+    padding: $spacing-small/2 $spacing-large;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.2s linear;
+    user-select: none;
+  }
+}

@@ -1,0 +1,16 @@
+/* Custom styling for posts */
+
+.single-post {
+  .mainContent {
+    display: flex;
+    height: 100%;
+  }
+  
+  .post {
+    @media (min-width: $breakpoint-desktop) {
+      align-items: flex-end;
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+}

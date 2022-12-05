@@ -1,0 +1,44 @@
+@import
+  'styles/variables',
+  'styles/mixins',
+  'styles/base';
+
+// stylelint-disable-next-line scss/at-import-no-partial-leading-underscore, scss/at-import-partial-extension-blacklist
+@import '../Components/**/_admin.scss';
+
+// .mce-content-body {
+//   background-color: #fff;
+// }
+
+// #tinymce {
+//   h2,
+//   .h2 {
+//     font-size: 15px;
+//     line-height: 18px;
+//     margin: 0;
+//   }
+
+//   h4,
+//   .h4 {
+//     font-size: 15px;
+//     line-height: 18px;
+//     margin: 0;
+//   }
+
+//   h5,
+//   .h5 {
+//     font-size: 15px;
+//     line-height: 18px;
+//     margin: 0;
+//   }
+
+//   p,
+//   .p
+//   .paragraph,
+//   table,
+//   span {
+//     margin: 0;
+//     margin-block-end: 0;
+//     margin-block-start: 0;
+//   }
+// }
