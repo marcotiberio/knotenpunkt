@@ -8,7 +8,7 @@
 
 html {
   animation-direction: alternate;
-  animation-duration: 35s;
+  animation-duration: 15s;
   animation-iteration-count: infinite;
   animation-name: backgroundColorPalette;
   animation-timing-function: linear;
@@ -29,10 +29,22 @@ html {
       background: $blue;
     }
 
-    50% {
+    33% {
+      background: $blue;
+    }
+
+    36% {
       background: $green;
     }
-  
+
+    66% {
+      background: $green;
+    }
+
+    69% {
+      background: $yellow;
+    }
+
     100% {
       background: $yellow;
     }
