@@ -1,0 +1,56 @@
+[is='flynt-block-wysiwyg-two-col'] {
+  @media (min-width: $breakpoint-desktop) {
+    align-items: flex-end;
+    display: flex;
+    height: 100%;
+    justify-content: flex-end;
+  }
+
+  .container {
+    .preContent {
+      width: 100%;
+    }
+    
+    .content {
+      @include reset-content-margins;
+      column-gap: $spacing-large*4;
+      display: grid;
+      grid-column-end: 7;
+      grid-column-start: 1;
+      grid-template-columns: repeat(2, 1fr);
+      height: auto;
+      justify-content: space-between;
+      width: 100%;
+  
+      @media (max-width: $breakpoint-mobile) {
+        display: block;
+      }
+
+      &-left {
+        padding-bottom: $spacing-large;
+
+        @media (min-width: $breakpoint-desktop) {
+          display: flex;
+          flex-flow: column wrap;
+          justify-content: flex-end;
+          padding-bottom: 0;
+        }
+        
+        h1,
+        .h1,
+        p,
+        .paragraph {
+          text-indent: 2rem;
+        }
+      }
+  
+      &-right {
+        @media (min-width: $breakpoint-desktop) {
+          display: flex;
+          flex-flow: column wrap;
+          justify-content: flex-end;
+        }
+      }
+    }
+  }
+}

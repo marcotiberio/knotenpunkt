@@ -1,0 +1,13 @@
+[is='flynt-block-post-header'] {  
+  .post-header {
+    border-bottom: 1px solid $black;
+    margin: 0 auto;
+    max-width: $content-max-width;
+    padding-bottom: $spacing-small/2;
+    
+    .post-title {
+      margin-bottom: 0;
+      text-transform: uppercase;
+    }
+  }
+}

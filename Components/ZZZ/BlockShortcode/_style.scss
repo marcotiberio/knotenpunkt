@@ -1,0 +1,64 @@
+[is='flynt-block-shortcode'] {
+  .content {
+    @include reset-content-margins;
+    
+    @media (min-width: $breakpoint-mobile) {
+      margin: 0 auto;
+    }
+    
+    .nf-table-display {
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .nf-before-form-content {
+      display: none !important;
+    }
+
+    td,
+    th {
+      padding: 0;
+    }
+
+    .nf-form-content input:not([type=button]),
+    textarea {
+      background-color: transparent;
+      border-bottom: 1px solid $black;
+      border-left: 0;
+      border-right: 0;
+      border-top: 0;
+      color: $blue;
+      font-size: 20px;
+      padding: $spacing-small 0;
+
+      &:focus {
+        background-color: transparent;
+        color: $black;
+      }
+    }
+
+    .nf-form-content [type='button'] {
+      background-color: $black;
+      border: 1px solid $black;
+      color: $black;
+  
+      &:hover,
+      &:focus {
+        background-color: $black;
+        color: $blue;
+        cursor: pointer;
+      }
+    }
+  }
+
+  iframe {
+    background: transparent !important;
+    border: 0 !important;
+    margin: 0 auto !important;
+    width: 100% !important;
+  }
+
+  .substack-watermark {
+    display: none !important;
+  }
+}

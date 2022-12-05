@@ -1,0 +1,90 @@
+.menu {
+  @include reset-list;
+  backface-visibility: hidden;
+  height: 0;
+  left: 0;
+  margin: 0;
+  opacity: 0;
+  overflow-y: auto;
+  padding-bottom: 0;
+  padding-top: 0;
+  position: fixed;
+  top: 65px;
+  // transform: translateY(-100%);
+  transition: all 0.45s cubic-bezier(0.19, 1, 0.22, 1), visibility 0.45s;
+  visibility: hidden;
+  width: 100%;
+  z-index: 98;
+
+  .admin-bar & {
+    top: $navigation-height + 46px;
+
+    @media (min-width: 783px) {
+      top: $navigation-height + 32px;
+    }
+  }
+
+  &-item--current {
+    .menu-link {
+      color: $white;
+    }
+  }
+
+  &-link {
+    color: $color-text;
+    display: block;
+    margin: 0;
+    padding: $spacing-small;
+    text-align: left;
+    text-decoration: none;
+    transition: color 0.2s ease-out;
+
+    &:focus {
+      color: $white;
+    }
+
+    @media (min-width: $breakpoint-tablet) {
+      padding-left: $spacing-large;
+      padding-right: $spacing-large;
+    }
+  }
+
+  &-submenu {
+    @include reset-list;
+    column-gap: $spacing-small;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-bottom: $spacing-large;
+    padding: 0 $spacing-small;
+
+    .menu-item {
+      display: inline-block;
+      flex-grow: 1;
+      margin-bottom: $spacing-small/2;
+
+      &:not(:last-child) {
+        margin-right: $spacing-large;
+      }
+
+      .menu-link {
+        padding: 0;
+        text-decoration: none;
+      }
+    }
+
+    .menu-item--current {
+      .menu-link {
+        color: $white;
+      }
+    }
+  }
+}
+
+&.flyntComponent-menuIsOpen .menu {
+  display: flex;
+  height: auto;
+  justify-content: space-between;
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+}

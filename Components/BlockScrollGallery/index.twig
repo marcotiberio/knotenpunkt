@@ -1,0 +1,15 @@
+<div class="flyntComponent" is="flynt-block-scroll-gallery">
+  <div class="container">
+    {% for box in boxes %}
+      <figure class="figure">
+        <img class="figure-image lazyload"
+          src="{{ box.image.src|resize(32) }}"
+          data-srcset="{{function('wp_get_attachment_image_srcset', box.image.id)}}"
+          data-sizes="auto">
+        {% if box.contentHtml %}
+          <div class="figure-content">{{ box.contentHtml|e('wp_kses_post') }}</div>
+        {% endif %}
+      </figure>
+    {% endfor %}
+  </div>
+</div>

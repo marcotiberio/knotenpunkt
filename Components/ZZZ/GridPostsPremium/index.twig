@@ -1,0 +1,87 @@
+{% if items|length > 0 %}
+  <div class="flyntComponent"is="flynt-grid-posts-premium">
+    <div class="container grid8">
+      {% if preContentHtml %}
+        <div class="preContent">
+          {{ preContentHtml|e('wp_kses_custom') }}
+        </div>
+      {% endif %}
+      <div class="filterSection">
+        <div class="filterSection--inner">
+          <div class="content content-title sectionId small">{{ options.sectionId }}</div>
+          <div class="filterSection--topic">
+            <sup class="label">TOPIC</sup>
+            <div class="category-list">
+            {# <li class="category active" data-term="all">All</li> #}
+            {% for category in topics %}
+              {% if category.count >= 0 %}
+                <li class="category" data-term="{{ category.title|lower|replace({' ': '-'}) }}">{{ category.title }}</li>
+              {% endif %}
+            {% endfor %}
+            </div>
+          </div>
+          <div class="filterSection--format">
+            <sup class="label">FORMAT</sup>
+            <div class="category-list">
+            {# <li class="category active" data-term="all">All</li> #}
+            {% for category in formats %}
+              {% if category.count >= 0 %}
+                <li class="category" data-format="{{ item.terms('format')|join(', ')|lower|replace({' ': '-'})  }}">{{ category.title }}</li>
+              {% endif %}
+            {% endfor %}
+            </div>
+          </div>
+          <div class="filterSection--search">
+            <sup class="label">SEARCH</sup>
+            {% include 'Partials/_search.twig' %}
+          </div>
+          <div class="filterSection--empty"></div>
+        </div>
+      </div>
+      <ul class="grid">
+        {% for item in items %}
+          <li class="grid-item" data-term="{{ item.category.title|lower|replace({' ': '-'}) }}" data-format="{{ item.terms('format')|join(', ')|lower|replace({' ': '-'})  }}">
+            <div class="content">
+              <a href="{{ item.link }}" class="content-link" title="{{ item.title }}">
+                <figure class="figure">
+                  <img class="figure-image lazyload"
+                    src="{{ item.thumbnail.src|resize(32) }}"
+                    data-srcset="{{function('wp_get_attachment_image_srcset', item.thumbnail.id)}}"
+                    data-sizes="auto"
+                    alt="{{ item.title }}">
+                </figure>
+                <div class="post-category small">
+                  <span>{{ item.category() }}</span>
+                  <span> / </span>
+                  <span> {{ item.terms('format') | join(', ')  }} </span>
+                  {# {% for tag in item.terms('tag')  %}
+                    <span>{{ tag }}</span> #}
+                    {# <li class="tags-item"><a class="tags-itemLink" href="{{ tag.link }}"><span class="visuallyHidden">{{ __("Tag:", "flynt") }}</span> {{ tag }}</a></li> #}
+                  {# {% endfor %} #}
+                  {# <span>{{ post.terms('tag') }}</span> #}
+                </div>
+                <div class="content-inner">
+                  <h2 class="h2 post-title">{{ item.title }}</h2>
+                  {# <p class="post-excerpt">{{ post.preview.read_more(false) }}</p> #}
+                  <a class="button button--link small" href="{{ item.link }}" title="{{ item.title }}" aria-hidden="true" tabindex="-1">
+                    {{ labels.readMore }}
+                    <sup>( {{ item.content | readingtime }} {{ labels.readingTime }} )</sup>
+                  </a>
+                </div>
+              </a>
+              {# <footer class="content-footer">
+                <span class="content-readingTime">
+                  <i data-feather="clock"></i> {{ item.content | readingtime }} {{ labels.readingTime }}
+                </span>
+                <a href="{{ item.link }}" class="button button--link content-readMore" aria-hidden="true" tabindex="-1">{{ labels.readMore }}</a>
+              </footer> #}
+            </div>
+          </li>
+        {% endfor %}
+      </ul>
+      {# <div class="allPostsLink {% if options.fadeIn %} fade-in {% endif %} {% if options.moveIn %} move-in {% endif %}">
+        <a href="#" class="button button--link" data-action="loadMore">{{ labels.allPosts }}</a>
+      </div> #}
+    </div>
+  </div>
+{% endif %}

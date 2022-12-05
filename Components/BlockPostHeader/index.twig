@@ -1,0 +1,13 @@
+<div class="flyntComponent boxed" is="flynt-block-post-header">
+<header class="post-header">
+  <div class="post-title h3">{{ post.title }}</div>
+  {# {% if post.thumbnail %}
+  <div class="featuredImage">
+    <img class="figure-image lazyload"
+      src="{{ post.thumbnail.src }}"
+      data-srcset="{{function('wp_get_attachment_image_srcset', post.thumbnail.id)}}"
+      data-sizes="auto">
+  </div>
+  {% endif %} #}
+  </header>
+</div>
