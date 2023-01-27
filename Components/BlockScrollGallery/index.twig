@@ -2,9 +2,13 @@
   <div class="container">
     {% for box in boxes %}
       <figure class="figure">
-        <img class="figure-image lazyload"
+        <img class="figure-image figure-image--desktop lazyload"
           src="{{ box.image.src|resize(32) }}"
           data-srcset="{{function('wp_get_attachment_image_srcset', box.image.id)}}"
+          data-sizes="auto">
+        <img class="figure-image figure-image--mobile lazyload"
+          src="{{ box.imageMobile.src|resize(32) }}"
+          data-srcset="{{function('wp_get_attachment_image_srcset', box.imageMobile.id)}}"
           data-sizes="auto">
         {% if box.contentHtml %}
           <div class="figure-content">{{ box.contentHtml|e('wp_kses_post') }}</div>

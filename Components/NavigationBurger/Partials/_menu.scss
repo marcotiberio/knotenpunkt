@@ -30,17 +30,26 @@
     }
   }
 
+  &-item {
+    flex-grow: 1;
+  }
+
   &-link {
     color: $color-text;
     display: block;
     margin: 0;
     padding: $spacing-small;
-    text-align: left;
+    text-align: center;
     text-decoration: none;
     transition: color 0.2s ease-out;
 
     &:focus {
       color: $white;
+    }
+
+    &h1,
+    &.h1 {
+      font-size: 14px;
     }
 
     @media (min-width: $breakpoint-tablet) {

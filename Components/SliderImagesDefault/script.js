@@ -16,6 +16,8 @@ class SliderImagesDefault extends window.HTMLDivElement {
     this.$ = $(this)
     this.props = this.getInitialProps()
     this.resolveElements()
+    this.bindFunctions()
+    this.bindEvents()
   }
 
   getInitialProps () {
@@ -30,6 +32,19 @@ class SliderImagesDefault extends window.HTMLDivElement {
     this.$slider = $('[data-slider]', this)
     this.$buttonNext = $('[data-slider-button="next"]', this)
     this.$buttonPrev = $('[data-slider-button="prev"]', this)
+    this.$showInfo = $('.showInfo', this)
+    this.$projectInfo = $('.description', this)
+    this.$wrapper = $('.projectInfo-wrapper', this)
+  }
+
+  bindFunctions () {
+    this.showInfo = this.showInfo.bind(this)
+    // this.hideInfo = this.showInfo.bind(this)
+  }
+
+  bindEvents () {
+    this.$showInfo.on('click', this.showInfo)
+    // this.$closeInfo.on('click', this.hideInfo)
   }
 
   connectedCallback () {
@@ -52,6 +67,24 @@ class SliderImagesDefault extends window.HTMLDivElement {
     }
     this.slider = new Swiper(this.$slider.get(0), config)
   }
+
+  showInfo (e) {
+    this.$projectInfo.toggleClass('description--visible')
+    this.$showInfo.toggleClass('description--visible')
+    this.$wrapper.toggleClass('description--visible')
+    this.$showInfo.text(function (i, v) {
+      return v === 'More Information' ? 'Less Information' : 'More Information'
+    })
+    // this.$closeInfo.toggle()
+    // this.$showInfo.toggle()
+  }
+
+  // hideInfo (e) {
+  //   console.log('search form close')
+  //   this.$searchForm.toggleClass('searchForm-show')
+  //   this.$buttonClose.toggle()
+  //   this.$button.toggle()
+  // }
 }
 
 window.customElements.define('flynt-slider-images-default', SliderImagesDefault, { extends: 'div' })

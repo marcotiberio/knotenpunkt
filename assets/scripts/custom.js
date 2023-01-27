@@ -19,6 +19,11 @@ $(document).ready(function () {
 })
 
 $(document).ready(function () {
+  const vh = window.innerHeight * 0.01
+  document.documentElement.style.setProperty('--vh', `${vh}px`)
+})
+
+$(document).ready(function () {
   $('.accessibility-toggle').click(function () {
     $('.accessibility').toggleClass('inView')
   })

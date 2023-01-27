@@ -25,25 +25,40 @@
       width: 100%;
     }
 
-    img {
+    &-image {
       height: 100vh;
       margin: 0;
       object-fit: cover;
       width: 100vw;
 
-      @media (max-width: $breakpoint-tablet) {
-        height: auto;
+      &--desktop {
+        display: block;
+  
+        @media (max-width: $breakpoint-tablet) {
+          display: none;
+        }
+      }
+  
+      &--mobile {
+        display: block;
+        
+        @media (min-width: $breakpoint-tablet + 1) {
+          display: none;
+        }
       }
     }
 
     &-content {
-      bottom: $spacing-large;
-      color: $white;
-      left: $spacing-large;
-      mix-blend-mode: difference;
+      bottom: 60px;
+      color: $black;
+      left: 75px;
       padding-right: $spacing-large;
       padding-top: $spacing-small;
       position: absolute;
+
+      @media (max-width: $breakpoint-tablet) {
+        left: $spacing-small;
+      }
     }
   }
 

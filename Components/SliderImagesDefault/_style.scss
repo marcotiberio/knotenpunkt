@@ -1,19 +1,18 @@
 [is='flynt-slider-images-default'] {
   margin: 0 auto;
-  max-width: 1680px !important;
-  padding: $spacing-large;
+  padding: 0;
   width: 100%;
 
   @media (max-width: $breakpoint-tablet) {
     margin: 0;
     max-width: 100%;
-    padding: $spacing-large;
+    padding: 0;
   }
 
   @media (max-width: $breakpoint-mobile) {
     margin: 0;
     max-width: 100%;
-    padding: $spacing-small;
+    padding: 0;
   }
 
   .preContent {
@@ -27,15 +26,117 @@
     }
   }
 
+  .projectInfo-wrapper {
+    bottom: 60px;
+    color: $black;
+    left: 75px;
+    position: absolute;
+    transition: all 0.5s linear;
+    width: 80vw;
+    z-index: 1000;
+
+    @media (max-width: $breakpoint-tablet) {
+      bottom: $spacing-small;
+      left: $spacing-small;
+      width: calc(100% - 30px);
+    }
+
+    @media (max-width: $breakpoint-mobile) {
+      bottom: $spacing-small;
+      left: $spacing-small;
+      width: calc(100% - 30px);
+    }
+
+    .title {
+      color: $black;
+      margin-bottom: $spacing-small;
+    }
+
+    .showInfo {
+      cursor: pointer;
+
+      // &::after {
+      //   content: '+';
+      //   margin-left: 5px;
+      // }
+
+      // &.description--visible {
+      //   &::after {
+      //     content: '-';
+      //     margin-left: 5px;
+      //   }
+      // }
+    }
+
+    .description {
+      animation-direction: alternate;
+      animation-duration: 50s;
+      animation-iteration-count: infinite;
+      animation-name: backgroundColorPalette;
+      animation-timing-function: linear;
+      display: none;
+      padding: $spacing-small;
+      transition: all 0.5s linear;
+
+      &--visible {
+        display: block;
+        max-height: 60vh;
+        overflow-y: scroll;
+      }
+
+      @keyframes descriptionColorPalette {
+        0% {
+          background: $blue;
+        }
+    
+        25% {
+          background: $blue;
+        }
+    
+        40% {
+          background: $green;
+        }
+    
+        65% {
+          background: $green;
+        }
+    
+        80% {
+          background: $yellow;
+        }
+    
+        100% {
+          background: $yellow;
+        }
+      }
+    }
+  }
+
   .slider {
     position: relative;
 
     &-item {
-      height: 0;
+      height: 100vh;
       overflow: hidden;
-      padding-bottom: percentage(10 / 16);
+      // padding-bottom: percentage(10 / 16);
       // padding-bottom: (10/16) * 100%;
       position: relative;
+
+      &--desktop {
+        display: block;
+  
+        @media (max-width: $breakpoint-tablet) {
+          display: none;
+        }
+      }
+
+      &--mobile {
+        display: none;
+  
+        @media (max-width: $breakpoint-tablet) {
+          display: block;
+        }
+      }
     }
 
     &-button {
@@ -91,7 +192,7 @@
   }
 
   .figure {
-    aspect-ratio: 16/10;
+    // aspect-ratio: 16/10;
     bottom: 0;
     left: 0;
     margin-bottom: 0;
@@ -102,12 +203,13 @@
     &-image {
       height: 100%;
       margin: 0 auto;
-      max-width: calc(100% - 120px);
-      object-fit: contain;
-      width: auto;
+      max-width: 100vw;
+      object-fit: cover;
+      // width: auto;
+      width: 100vw;
 
       @media (max-width: $breakpoint-tablet) {
-        max-width: calc(100% - 60px);
+        max-width: 100vw;
       }
     }
 

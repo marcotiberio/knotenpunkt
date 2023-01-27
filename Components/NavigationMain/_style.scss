@@ -30,7 +30,7 @@
 
   .wrapper {
     align-items: center;
-    bottom: 0;
+    bottom: 5px;
     display: flex;
     flex-flow: row wrap;
     height: auto;
@@ -71,7 +71,7 @@
       font-size: 1.3rem;
       line-height: 1;
       padding-left: $spacing-small;
-      padding-right: $spacing-large;
+      padding-right: $spacing-small;
 
       &:last-child {
         padding-right: 0;

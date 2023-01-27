@@ -11,7 +11,7 @@ function getACFLayout()
         'label' => 'Block: Playground Section',
         'sub_fields' => [
             [
-                'label' => __('General', 'flynt'),
+                'label' => __('Desktop', 'flynt'),
                 'name' => 'generalTab',
                 'type' => 'tab',
                 'placement' => 'top',
@@ -26,7 +26,7 @@ function getACFLayout()
                 'button_label' => __('Add Image', 'flynt'),
                 'sub_fields' => [
                     [
-                        'label' => __('Image', 'flynt'),
+                        'label' => __('Image Desktop', 'flynt'),
                         'name' => 'image',
                         'type' => 'image',
                         'preview_size' => 'medium',
@@ -34,7 +34,19 @@ function getACFLayout()
                         'required' => 0,
                         'mime_types' => 'jpg,jpeg,png,svg',
                         'wrapper' =>  [
-                            'width' => '30',
+                            'width' => '20',
+                        ]
+                    ],
+                    [
+                        'label' => __('Image Mobile', 'flynt'),
+                        'name' => 'imageMobile',
+                        'type' => 'image',
+                        'preview_size' => 'medium',
+                        'instructions' => __('Image-Format: JPG, PNG, SVG.', 'flynt'),
+                        'required' => 0,
+                        'mime_types' => 'jpg,jpeg,png,svg',
+                        'wrapper' =>  [
+                            'width' => '20',
                         ]
                     ],
                     [
@@ -45,7 +57,7 @@ function getACFLayout()
                         'media_upload' => 0,
                         'required' => 0,
                         'wrapper' =>  [
-                            'width' => '70',
+                            'width' => '60',
                         ]
                     ],
                 ],

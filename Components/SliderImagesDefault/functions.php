@@ -17,7 +17,7 @@ function getACFLayout()
 {
     return [
         'name' => 'sliderImagesDefault',
-        'label' => 'Slider: Images',
+        'label' => 'Block: Propel Slider',
         'sub_fields' => [
             [
                 'label' => __('General', 'flynt'),
@@ -25,11 +25,6 @@ function getACFLayout()
                 'type' => 'tab',
                 'placement' => 'top',
                 'endpoint' => 0
-            ],
-            [
-                'label' => __('Title', 'flynt'),
-                'name' => 'title',
-                'type' => 'text',
             ],
             [
                 'label' => __('Images', 'flynt'),
@@ -40,6 +35,35 @@ function getACFLayout()
                 'mime_types' => 'jpg,jpeg,png, gif',
                 'instructions' => __('Image-Format: JPG, PNG, GIF.', 'flynt'),
                 'required' => 1
+            ],
+            [
+                'label' => __('Images Mobile', 'flynt'),
+                'name' => 'imagesMobile',
+                'type' => 'gallery',
+                'min' => 2,
+                'preview_size' => 'medium',
+                'mime_types' => 'jpg,jpeg,png, gif',
+                'instructions' => __('Image-Format: JPG, PNG, GIF.', 'flynt'),
+                'required' => 1
+            ],
+            [
+                'label' => __('Project Info', 'flynt'),
+                'name' => 'projectinfoTab',
+                'type' => 'tab',
+                'placement' => 'top',
+                'endpoint' => 0
+            ],
+            [
+                'label' => __('Title', 'flynt'),
+                'name' => 'title',
+                'type' => 'text'
+            ],
+            [
+                'label' => __('Description', 'flynt'),
+                'name' => 'descriptionHtml',
+                'type' => 'wysiwyg',
+                'delay' => 1,
+                'media_upload' => 0
             ],
             [
                 'label' => __('Options', 'flynt'),

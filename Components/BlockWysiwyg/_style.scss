@@ -1,9 +1,4 @@
 [is='flynt-block-wysiwyg'] {
-  .container {
-    border-bottom: 1px solid $orange;
-    border-top: 1px solid $orange;
-  }
-  
   .content {
     @include reset-content-margins;
     padding: $spacing-large $spacing-large*2;

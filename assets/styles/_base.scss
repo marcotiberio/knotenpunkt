@@ -4,11 +4,11 @@
 * Top level styles every element should inherit.
 */
 
-@include font-face('klarheit', 'klarheit', '400', 'normal');
+@include font-face('klarheit', 'ESKlarheitKurrentRegular', '400', 'normal');
 
 html {
   animation-direction: alternate;
-  animation-duration: 15s;
+  animation-duration: 50s;
   animation-iteration-count: infinite;
   animation-name: backgroundColorPalette;
   animation-timing-function: linear;
@@ -29,19 +29,19 @@ html {
       background: $blue;
     }
 
-    33% {
+    25% {
       background: $blue;
     }
 
-    36% {
+    40% {
       background: $green;
     }
 
-    66% {
+    65% {
       background: $green;
     }
 
-    69% {
+    80% {
       background: $yellow;
     }
 
@@ -71,8 +71,12 @@ body {
   overflow-x: hidden;
   padding: 70px 90px;
 
-  @media (max-width: $breakpoint-desktop - 1) {
+  @media (max-width: $breakpoint-tablet) {
     padding: $spacing-large*5 $spacing-small $spacing-small;
+  }
+
+  @media (max-width: $breakpoint-mobile) {
+    height: calc((var(--vh, 1vh) * 100));
   }
 }
 
@@ -95,6 +99,24 @@ body {
 ::selection {
   background: $black;
   color: $white;
+}
+
+.cmplz-cookiebanner {
+  width: calc(100% - 180px) !important;
+
+  @media (max-width: $breakpoint-mobile) {
+    width: 100% !important;
+  }
+}
+
+.cmplz-cookiebanner .cmplz-title {
+  grid-column-end: 3;
+  grid-column-start: 1;
+  justify-self: flex-start;
+}
+
+.cmplz-cookiebanner {
+  width: 100%;
 }
 
 /**
@@ -199,7 +221,12 @@ a {
 
 p,
 .paragraph {
+  font-size: 1rem;
   margin: 0;
+
+  @media (max-width: $breakpoint-mobile) {
+    font-size: 1rem;
+  }
 
   &:last-child {
     margin: 0;
@@ -207,6 +234,7 @@ p,
 
   a {
     color: $black;
+    font-weight: bold;
     text-decoration: none;
     text-underline-offset: 3px;
     transition: color 0.2s ease-out;
@@ -225,21 +253,16 @@ figure {
   margin: 0 0 2.25rem;
 
   a {
-    color: $black;
-    text-decoration: underline;
+    color: $white;
+    text-decoration: none;
     text-underline-offset: 3px;
     transition: color 0.2s ease-out;
   
     &:hover,
     &:focus {
-      color: $color-text;
+      color: $black;
       text-decoration: none;
       transition: color 0.2s ease-out;
-    }
-  
-    &::before {
-      content: '→ ';
-      position: relative;
     }
   }
 }
